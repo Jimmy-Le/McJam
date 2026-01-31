@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class ArrowScript : MonoBehaviour
+public class ArrowScript : MonoBehaviour, MainAttack
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public float speed;
+    public float speed = 3f;
     public float damage;
     public Vector2 direction = new Vector2(1, 0);
     void Start()
@@ -21,7 +21,7 @@ public class ArrowScript : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("Hi");
+       
         Enemy enemy = other.gameObject.GetComponent<Enemy>();
         if (enemy != null)
         {
@@ -31,11 +31,13 @@ public class ArrowScript : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void InitializeArrow(float playerDamage, Vector2 playerDirection)
+    public void InitializeArrow(float playerDamage, Vector2 playerDirection, float speed)
     {
         direction = playerDirection;
         damage = playerDamage;
+        this.speed = speed;
     }
+    
     
     
 }
