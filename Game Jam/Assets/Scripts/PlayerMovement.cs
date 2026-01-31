@@ -11,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
     private InputAction attack_action;
     private InputAction dodge_action;
     private InputAction skill_action;
+
+	// Animation
+	[SerializeField] private Animator animator; 
+	[SerializeField] private SpriteRenderer renderer;
+
     
     // Stats
 	[SerializeField]
@@ -144,9 +149,12 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Movement(){
 		Vector2 movement = move_action.ReadValue<Vector2>();
+		// Move diagonal
         if(movement.x != 0 && movement.y != 0)
 		{
 			direction = new Vector2(movement.x, 0);
+		
+			
 		} else if(movement.y != 0 && movement.x == 0) 
 		{
 			direction = new Vector2(0, movement.y);
@@ -154,7 +162,36 @@ public class PlayerMovement : MonoBehaviour
 		{
 			direction = new Vector2(movement.x, 0);
 		}
-	
+
+		// if moving left
+		if(direction.x < 0){
+			renderer.flipX = true;
+			animator.SetBool("isFront", false);
+			animator.SetBool("isBack", false);
+		} else if (direction.x > 0)	// Moving right
+		{
+			renderer.flipX = false;
+			animator.SetBool("isFront", false);
+			animator.SetBool("isBack", false);
+		} else if (direction.y < 0) // Moving down ?
+		{
+			renderer.flipX = false;
+			animator.SetBool("isFront", true);
+			animator.SetBool("isBack", false);
+		
+		} else if (direction.y > 0)
+		{
+			renderer.flipX = false;
+			animator.SetBool("isFront", false);
+			animator.SetBool("isBack", true);
+		} else 
+		{
+			renderer.flipX = false;
+			animator.SetBool("isFront", false);
+			animator.SetBool("isBack", false);
+		}
+
+
         transform.Translate(0, movement.y * speed * Time.deltaTime, 0, Space.World);
         transform.Translate(movement.x * speed * Time.deltaTime,0, 0, Space.World);
 
