@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     
     // Stats
 	[SerializeField]
+	public int health = 3;
+	
+	[SerializeField]
 	public float attack = 5f;
     [SerializeField] 
     public float speed = 2f;
@@ -29,12 +32,24 @@ public class PlayerMovement : MonoBehaviour
 	public GameObject skill;
 
 	// Main Attack Timer
-	private float mainAttackTimer = 0;
+	public float mainAttackTimer = 0;
 	private float mainAttackCooldown = 0.5f;
 	
 	// Special Attack 
-	private float skillTimer = 0;
+	public float skillTimer = 0;
 	private float skillCooldown = 2f;
+
+	// Dodge
+	public bool isDodging = false;
+	public float dodgeTimer = 0;
+	public float dodgeDurationTimer = 0f;
+	public float dodgeDuration = 2f;
+	private float dodgeCooldown = 1f;
+	public float dodgeSpeed = 10f;
+	public float dodgeDistance = 1f;
+	private Vector3 targetPosition;
+	private Vector3 currentPosition;
+
 
     
     
@@ -57,26 +72,40 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		// Timers
+		if(mainAttackTimer > 0)
+		{
+			mainAttackTimer -= Time.deltaTime;
+		}
+		if(skillTimer > 0)
+		{
+			skillTimer -= Time.deltaTime;
+		}
+		if(dodgeTimer > 0)
+		{
+			dodgeTimer -= Time.deltaTime;
+		}
+		if(dodgeDurationTimer > 0 && isDodging){
+			dodgeDurationTimer -= Time.deltaTime;
+		} else {
+			dodgeDurationTimer = dodgeDuration;
+			isDodging = false;
+		}
+		
+
 		
 		if (attack_action.IsPressed())
 		{
-			if(mainAttackTimer > 0)
-			{
-				mainAttackTimer -= Time.deltaTime;
-			} else 
+			if(mainAttackTimer <= 0)
 			{
 				Attack();
 				mainAttackTimer = mainAttackCooldown;
 			} 
-			
 		}
 
 		if (skill_action.IsPressed())
 		{
-			if(skillTimer > 0)
-			{
-				skillTimer -= Time.deltaTime;
-			} else 
+			if(skillTimer <= 0)
 			{
 				Skill();
 				skillTimer = skillCooldown;
@@ -84,12 +113,30 @@ public class PlayerMovement : MonoBehaviour
 			
 		}
 
+		if (dodge_action.IsPressed() && !isDodging)
+		{
+			if(dodgeTimer <= 0)
+			{
+				isDodging = true;
+				currentPosition = transform.position;
+				targetPosition = new Vector3(currentPosition.x + (dodgeDistance * direction.x), currentPosition.y + (dodgeDistance * direction.y), currentPosition.z);
+				dodgeTimer = dodgeCooldown;
+			}
+		}
+
+		if(isDodging)
+		{
+			Dodge();
+			
+		}
+
       
     }
 
 	void FixedUpdate(){
-		if (move_action.IsPressed())
+		if (move_action.IsPressed() && !isDodging)
         {
+			
             Movement();
 
         }
@@ -128,6 +175,34 @@ public class PlayerMovement : MonoBehaviour
 		GameObject skillObject = Instantiate(skill, transform.position, Quaternion.Euler(0,0,0));
 		skillObject.GetComponent<SkillAttack>().Shoot();
 
+	}
+
+	private void Dodge()
+	{
+		
+		transform.position = Vector3.MoveTowards(transform.position, targetPosition, dodgeSpeed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, targetPosition) < 0.1f) {
+            isDodging = false; 
+        }
+		
+		
+	}
+	
+	
+	
+
+	public void TakeDamage(int damage){
+		health -= damage;
+		if (health <= 0){
+			Debug.Log("Game Over");
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D other){
+		if(other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Enemy"))
+		{
+			targetPosition = transform.position;
+		}
 	}
 
 }
