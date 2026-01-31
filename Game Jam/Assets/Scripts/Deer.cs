@@ -4,7 +4,7 @@ public class Deer : MonoBehaviour, Enemy
 {
     [SerializeField] public float health;
     [SerializeField] public int attack = 1;
-    [SerializeField] public float speed = 2f;
+    
 
     [SerializeField] public Vector2 direction;
     

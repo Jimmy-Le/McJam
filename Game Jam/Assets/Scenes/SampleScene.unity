@@ -898,7 +898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   inputAction: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   animator: {fileID: 1848839525}
-  renderer: {fileID: 1848839520}
+  spriteRenderer: {fileID: 1848839520}
   health: 3
   attack: 5
   speed: 5
@@ -1077,6 +1077,7 @@ GameObject:
   - component: {fileID: 1907619776}
   - component: {fileID: 1907619779}
   - component: {fileID: 1907619780}
+  - component: {fileID: 1907619781}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -1098,7 +1099,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   health: 0
   attack: 1
-  speed: 2
   direction: {x: 0, y: 0}
 --- !u!212 &1907619777
 SpriteRenderer:
@@ -1247,6 +1247,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1907619781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907619775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a776888193106a78251cceac53e4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  playerTransform: {fileID: 1848839521}
+  speed: 1
+  minDistance: 2
 --- !u!4 &2043318404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2391835960752892293, guid: ccdbe9931c8adbf2b876864de43fcc07, type: 3}

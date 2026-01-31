@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
 	// Animation
 	[SerializeField] private Animator animator; 
-	[SerializeField] private SpriteRenderer renderer;
+	[SerializeField] private SpriteRenderer spriteRenderer;
 
     
     // Stats
@@ -165,28 +165,28 @@ public class PlayerMovement : MonoBehaviour
 
 		// if moving left
 		if(direction.x < 0){
-			renderer.flipX = true;
+			spriteRenderer.flipX = true;
 			animator.SetBool("isFront", false);
 			animator.SetBool("isBack", false);
 		} else if (direction.x > 0)	// Moving right
 		{
-			renderer.flipX = false;
+			spriteRenderer.flipX = false;
 			animator.SetBool("isFront", false);
 			animator.SetBool("isBack", false);
 		} else if (direction.y < 0) // Moving down ?
 		{
-			renderer.flipX = false;
+			spriteRenderer.flipX = false;
 			animator.SetBool("isFront", true);
 			animator.SetBool("isBack", false);
 		
 		} else if (direction.y > 0)
 		{
-			renderer.flipX = false;
+			spriteRenderer.flipX = false;
 			animator.SetBool("isFront", false);
 			animator.SetBool("isBack", true);
 		} else 
 		{
-			renderer.flipX = false;
+			spriteRenderer.flipX = false;
 			animator.SetBool("isFront", false);
 			animator.SetBool("isBack", false);
 		}
