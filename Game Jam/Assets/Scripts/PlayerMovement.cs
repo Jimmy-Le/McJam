@@ -128,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
 			isInvincible = false;
 
 		}
-		
+
 		
 		if (attack_action.IsPressed() )
 		{
@@ -175,7 +175,9 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-
+				
+		AbilitiesUI.abilitiesUIInstance.UpdateDashUI(dodgeTimer);
+		AbilitiesUI.abilitiesUIInstance.UpdateFlurryUI(skillTimer, hasSkill);
     }
 
 	void FixedUpdate(){
