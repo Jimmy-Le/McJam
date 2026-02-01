@@ -15,6 +15,8 @@ public class Deer : MonoBehaviour, Enemy
     void Start()
     {
         health = 100f;
+        MusicManager.Instance.PlayMusic("Boss-Deer");
+
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class Deer : MonoBehaviour, Enemy
         if (health <= 0)
         {
             KilledBoss();
+            SoundManager.Instance.PlaySound2D("Boss-died", 0.1f, 0.1f);
         }
     }
 
@@ -37,7 +40,7 @@ public class Deer : MonoBehaviour, Enemy
     {
 		gameManager.BossKilled();
 		Instantiate(powerUp, transform.position, Quaternion.identity);
-	
+        MusicManager.Instance.StopMusic();
         Destroy(this.gameObject);
     }
 

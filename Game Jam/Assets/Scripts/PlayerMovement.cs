@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 			if(mainAttackTimer <= 0)
 			{
 				Attack();
-                SoundManager.Instance.PlaySound2D("Player-Attack", 0f, 0.9f);
+                SoundManager.Instance.PlaySound2D("Player-Attack", 0.1f, 0.1f);
 
                 mainAttackTimer = mainAttackCooldown;
 			} 
@@ -198,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
         // Play footstep sound only if moving and cooldown expired
         if (isMoving && footstepTimer <= 0f)
         {
-            SoundManager.Instance.PlaySound2D("Player-Footstep", 0.5f, 0.9f);
+            SoundManager.Instance.PlaySound2D("Player-Footstep", 0.1f, 0.1f);
             footstepTimer = footstepCooldown;
         }
 

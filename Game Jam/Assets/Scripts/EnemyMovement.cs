@@ -35,12 +35,16 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         // Get player object by tag 
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!isWalking && !isAntlerDash && !isAttacking)
+
+
         {
             float distance = Vector3.Distance(transform.position, playerTransform.position);
                     if (distance < minDistance)
