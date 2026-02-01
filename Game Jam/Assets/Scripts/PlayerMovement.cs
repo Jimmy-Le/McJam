@@ -216,8 +216,10 @@ public class PlayerMovement : MonoBehaviour
 	private void Attack()
 	{
 
-		mainAttack.GetComponent<MainAttack>().InitializeArrow(attack, direction, attackSpeed);
-		Instantiate(mainAttack, transform.position, Quaternion.Euler(0,0,0));
+		
+		GameObject arrow = Instantiate(mainAttack, transform.position, Quaternion.Euler(0,0,0));
+		arrow.GetComponent<MainAttack>().InitializeArrow(attack, direction, attackSpeed);
+	
 
 	}
 

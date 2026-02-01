@@ -6,6 +6,8 @@ public class ArrowScript : MonoBehaviour, MainAttack
     public float speed = 3f;
     public float damage;
     public Vector2 direction = new Vector2(1, 0);
+    
+    [SerializeField] private SpriteRenderer spriteRenderer;
     void Start()
     {
         
@@ -13,6 +15,10 @@ public class ArrowScript : MonoBehaviour, MainAttack
 
     // Update is called once per frame
     void Update()
+    {
+    }
+
+    void FixedUpdate()
     {
         // Since we are hardcoding the direction to be one or the other (x or y), we can prob do it in one line
         transform.Translate(direction.x * speed * Time.deltaTime, direction.y * speed * Time.deltaTime, 0, Space.World);
@@ -36,6 +42,11 @@ public class ArrowScript : MonoBehaviour, MainAttack
         direction = playerDirection;
         damage = playerDamage;
         this.speed = speed;
+        
+        // Compute rotation from direction (right-facing base sprite)
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        
     }
     
     
