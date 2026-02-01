@@ -580,12 +580,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: soundEffects.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: soundEffects.Array.data[3].groupID
       value: Player-Footstep
       objectReference: {fileID: 0}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: soundEffects.Array.data[4].groupID
+      value: Boss-died
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: soundEffects.Array.data[4].clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: 'soundEffects.Array.data[4].clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 913f848e02e93f56da7a3b76fcb023a9, type: 3}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: 'soundEffects.Array.data[4].clips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b33cb34a942a5def0a58427981213e49, type: 3}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: 'soundEffects.Array.data[4].clips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a93bbee0d90f2db096919e08c63e628, type: 3}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: 'soundEffects.Array.data[4].clips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 977dcaecffc64b3ea8e0c5561b8b6bd4, type: 3}
     - target: {fileID: 9133688060421540266, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: m_Name
       value: Audiomanager

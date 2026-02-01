@@ -252,6 +252,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Dodge()
 	{
+
+
 		isInvincible = true;
 		invincibleTimer = invincibleDuration;
 		transform.position = Vector3.MoveTowards(transform.position, targetPosition, dodgeSpeed * Time.deltaTime);
