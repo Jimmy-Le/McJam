@@ -185,10 +185,13 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Movement(){
 
-
 		Vector2 movement = move_action.ReadValue<Vector2>();
-		// Move diagonal
-        if(movement.x != 0 && movement.y != 0)
+
+
+        SoundManager.Instance.PlaySound2D("Player-FootstepForest", 1f, 0.1f);
+
+        // Move diagonal
+        if (movement.x != 0 && movement.y != 0)
 		{
 			direction = new Vector2(movement.x, 0);
 		

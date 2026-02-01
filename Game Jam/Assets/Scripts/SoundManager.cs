@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
         PlaySound3D(sfxLibrary.GetClipFromName(soundName), pos);
     }
 
-    public void PlaySound2D(string soundName)
+    public void PlaySound2D(string soundName, float volume = 1f, float delay = 0f)
     {
         sfx2DSource.PlayOneShot(sfxLibrary.GetClipFromName(soundName));
     }
