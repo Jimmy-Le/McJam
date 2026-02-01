@@ -77,7 +77,11 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private IEnumerator AntlerAttack()
-    {   
+    {
+
+        SoundManager.Instance.PlaySound2D("Boss-Charge", 0.1f, 0.1f);
+
+
         isWalking = false;
         isAttacking = false;
 		animator.SetBool("isWalking", false);
