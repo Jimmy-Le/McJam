@@ -19,6 +19,8 @@ public class DragonScript : MonoBehaviour, Enemy
     void Start()
     {
         health = 150f;
+        MusicManager.Instance.PlayMusic("Boss-Dragon");
+
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class DragonScript : MonoBehaviour, Enemy
 
     public void TakeDamage(float damage)
     {
+        SoundManager.Instance.PlaySound2D("Boss-Hurt", 1f, 0.1f);
         health -= damage;
         DragonHealth.DragonHP.UpdateDragonHealth(health);
         if (health <= 0)
@@ -53,6 +56,9 @@ public class DragonScript : MonoBehaviour, Enemy
     {
 		gameManager.BossKilled();
         Destroy(this.gameObject);
+        SoundManager.Instance.PlaySound2D("Boss-Dead", 1f, 0.1f);
+
+
     }
 
     public void SetAttack()
