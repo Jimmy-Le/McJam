@@ -279,6 +279,7 @@ public class PlayerMovement : MonoBehaviour
 		{
 			animator.SetTrigger("isHit");
 			health -= damage;
+			PlayerHealth.HP.UpdateHealth(health);
 			if (health <= 0){
 				Die();
 			} else {
