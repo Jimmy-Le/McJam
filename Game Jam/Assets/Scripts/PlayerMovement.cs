@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 	// Animation
 	[SerializeField] private Animator animator; 
 	[SerializeField] private SpriteRenderer spriteRenderer;
+	[SerializeField] private Rigidbody2D rb;
 
     
     // Stats
@@ -29,6 +30,12 @@ public class PlayerMovement : MonoBehaviour
 	public float attackSpeed = 3f;
     [SerializeField] 
     public Vector2 direction = new Vector2(1,0);
+	
+    // Death
+	[SerializeField] 
+	private GameManager gameManager;
+    private bool isDead = false;
+	
 
 	// Invincibility
 	public bool isInvincible = false;
@@ -47,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 	
 	// Special Attack 
 	public float skillTimer = 0;
-	private float skillCooldown = 2f;
+	private float skillCooldown = 5f;
 
 	// Dodge
 	public bool isDodging = false;
@@ -82,6 +89,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+	    if(isDead)
+	    {
+		    return;
+	    }
 		// Timers
 		if(mainAttackTimer > 0)
 		{
@@ -109,11 +120,11 @@ public class PlayerMovement : MonoBehaviour
 		} else {
 			spriteRenderer.color = Color.white;  // R>1 overbright
 			isInvincible = false;
+
 		}
 		
-
 		
-		if (attack_action.IsPressed())
+		if (attack_action.IsPressed() )
 		{
 			if(mainAttackTimer <= 0)
 			{
@@ -122,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
 			} 
 		}
 
-		if (skill_action.IsPressed())
+		if (skill_action.IsPressed() )
 		{
 			if(skillTimer <= 0)
 			{
@@ -132,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 			
 		}
 
-		if (dodge_action.IsPressed() && !isDodging)
+		if (dodge_action.IsPressed() && !isDodging )
 		{
 			if(dodgeTimer <= 0)
 			{
@@ -155,6 +166,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
 	void FixedUpdate(){
+	    if(isDead)
+        {
+            return;
+        }
+
 		if (move_action.IsPressed() && !isDodging)
         {
 			
@@ -164,6 +180,8 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	private void Movement(){
+
+
 		Vector2 movement = move_action.ReadValue<Vector2>();
 		// Move diagonal
         if(movement.x != 0 && movement.y != 0)
@@ -247,16 +265,25 @@ public class PlayerMovement : MonoBehaviour
 	
 
 	public void TakeDamage(int damage){
-		if(!isInvincible)
+		if(!isInvincible && !isDead)
 		{
+			animator.SetTrigger("isHit");
 			health -= damage;
 			if (health <= 0){
-				Debug.Log("Game Over");
+				Die();
 			} else {
 				isInvincible = true;
 				spriteRenderer.color = new Color(10f, 1.5f, 2f, 1f);  // R>1 overbright
 			}
 		}
+	}
+
+	public void Die()
+	{
+		rb.bodyType = RigidbodyType2D.Kinematic;
+		animator.SetBool("isDead", true);
+		isDead = true;
+		gameManager.GameOver();	
 	}
 
 	void OnCollisionEnter2D(Collision2D other){

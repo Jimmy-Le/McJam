@@ -28,7 +28,7 @@ public class RapidFireScript : MonoBehaviour, SkillAttack
        
         
         
-        arrow.gameObject.GetComponent<MainAttack>().InitializeArrow(damage, direction, speed);
+        // arrow.gameObject.GetComponent<MainAttack>().InitializeArrow(damage, direction, speed);
 
         
 
@@ -38,7 +38,8 @@ public class RapidFireScript : MonoBehaviour, SkillAttack
     {
         for (int i = 0; i < amount; i++)
         {
-            Instantiate(arrow, arrowPosition, Quaternion.Euler(0,0,0));
+            GameObject currentArrow = Instantiate(arrow, arrowPosition, Quaternion.Euler(0,0,0));
+            currentArrow.GetComponent<MainAttack>().InitializeArrow(damage, direction, speed);
             yield return new WaitForSeconds(timeBetweenShots);
         }
         Destroy(this.gameObject);
