@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 48a2fdff286b65e41ac8662f45af0ab3
+guid: 2627641a239529849a7a9b20ae2de7af
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2791484660764179191
-    second: Background015_SecondCorridor_0
+      213: 3555345144002614000
+    second: Deer_Idle0001_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background015_SecondCorridor_0
+      name: Deer_Idle0001_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 2
+        y: 9
+        width: 134
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7fafcc052885db620800000000000000
-      internalID: 2791484660764179191
+      spriteID: 0f29f2a429f175130800000000000000
+      internalID: 3555345144002614000
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Background015_SecondCorridor_0: 2791484660764179191
+      Deer_Idle0001_0: 3555345144002614000
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 48a2fdff286b65e41ac8662f45af0ab3
+guid: 5517cca9e1803cd40b15711fe6cfa0fb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2791484660764179191
-    second: Background015_SecondCorridor_0
+      213: -7622849180417172815
+    second: Deer_Walk0003_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background015_SecondCorridor_0
+      name: Deer_Walk0003_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 26
+        y: 11
+        width: 144
+        height: 151
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7fafcc052885db620800000000000000
-      internalID: 2791484660764179191
+      spriteID: 1ba5bd8de03363690800000000000000
+      internalID: -7622849180417172815
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Background015_SecondCorridor_0: 2791484660764179191
+      Deer_Walk0003_0: -7622849180417172815
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
