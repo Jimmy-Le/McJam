@@ -1,13 +1,12 @@
+using System.Diagnostics;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    [SerializeField]
-    private SoundLibrary sfxLibrary;
-    [SerializeField]
-    private AudioSource sfx2DSource;
+    [SerializeField] private SoundLibrary sfxLibrary;
+    [SerializeField] private AudioSource sfx2DSource;
 
     private void Awake()
     {
@@ -35,10 +34,32 @@ public class SoundManager : MonoBehaviour
         PlaySound3D(sfxLibrary.GetClipFromName(soundName), pos);
     }
 
+    // === FIXED Version ===
     public void PlaySound2D(string soundName, float volume = 1f, float delay = 0f)
     {
-        sfx2DSource.PlayOneShot(sfxLibrary.GetClipFromName(soundName));
+        AudioClip clip = sfxLibrary.GetClipFromName(soundName);
 
+
+
+        // If user passes a negative volume, treat it as decibels (like -10 dB)
+        float finalVolume = volume < 0 ? Mathf.Pow(10f, volume / 20f) : volume;
+
+        // Clamp volume between 0–1 to avoid errors
+        finalVolume = Mathf.Clamp01(finalVolume);
+
+        if (delay <= 0f)
+        {
+            sfx2DSource.PlayOneShot(clip, finalVolume);
+        }
+        else
+        {
+            StartCoroutine(PlayDelayedSound(clip, finalVolume, delay));
+        }
     }
 
+    private System.Collections.IEnumerator PlayDelayedSound(AudioClip clip, float volume, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        sfx2DSource.PlayOneShot(clip, volume);
+    }
 }

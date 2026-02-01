@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 			if(mainAttackTimer <= 0)
 			{
 				Attack();
-                SoundManager.Instance.PlaySound2D("Player-Attack", 0.1f, 0.1f);
+                SoundManager.Instance.PlaySound2D("Player-Attack", 0.3f, 0.1f);
 
                 mainAttackTimer = mainAttackCooldown;
 			} 
@@ -156,7 +156,10 @@ public class PlayerMovement : MonoBehaviour
 
             if (dodgeTimer <= 0)
 			{
-				isDodging = true;
+                SoundManager.Instance.PlaySound2D("Player-Dash", 0.3f, 0.1f);
+
+
+                isDodging = true;
 				isInvincible = true;
 				currentPosition = transform.position;
 				targetPosition = new Vector3(currentPosition.x + (dodgeDistance * direction.x), currentPosition.y + (dodgeDistance * direction.y), currentPosition.z);
@@ -169,7 +172,6 @@ public class PlayerMovement : MonoBehaviour
 		{
 			Dodge();
 
-            SoundManager.Instance.PlaySound2D("Player-Dash", 1f, 0.1f);
 
         }
 
@@ -278,7 +280,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public void TakeDamage(int damage){
 		if(!isInvincible && !isDead)
-            SoundManager.Instance.PlaySound2D("Player-Hurt", -10f, 0.1f);
+            SoundManager.Instance.PlaySound2D("Player-Hurt", 0.3f, 0.1f);
 
 
         {
