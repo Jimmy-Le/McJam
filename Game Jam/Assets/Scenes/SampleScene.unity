@@ -183,7 +183,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -3336174600024727172, guid: d01954b87749c5911adecd285f86debb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -374,7 +374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &608352354
 ParticleSystemRenderer:
   serializedVersion: 7
@@ -5609,7 +5609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1505195814
 ParticleSystemRenderer:
   serializedVersion: 7
@@ -10492,7 +10492,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 5182315548597846741, guid: d01954b87749c5911adecd285f86debb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10683,6 +10683,10 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1907619780}
+    - target: {fileID: 379542904147666965, guid: f61bb11a6c4d3fa87ac6d5f9b18356a1, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1907619782}
     - target: {fileID: 379542904147666965, guid: f61bb11a6c4d3fa87ac6d5f9b18356a1, type: 3}
       propertyPath: spriteRenderer
       value: 

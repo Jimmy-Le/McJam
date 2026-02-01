@@ -7,6 +7,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     [SerializeField] private GameObject attackIndicator;
+	[SerializeField] private Animator animator; 
     // States
     private bool isWalking = false;
     private bool isAttacking = false;
@@ -23,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
     
     // Boss Attack Timer
     private float timer = 0;
-    private float attackTime = 10f;
+    private float attackTime = 5f;
 
     private Vector3 currentTargetPosition;
     
@@ -44,6 +45,7 @@ public class EnemyMovement : MonoBehaviour
                     if (distance < minDistance)
                     {
                         isWalking = true;
+						animator.SetBool("isWalking", true);
                     }
         }
         
@@ -73,7 +75,8 @@ public class EnemyMovement : MonoBehaviour
     {   
         isWalking = false;
         isAttacking = false;
-        
+		animator.SetBool("isWalking", false);
+        animator.SetBool("isAntlerDashing", true);
         IncreaseSpeed();
         yield return new WaitForSeconds(1.5f);
         
@@ -92,9 +95,11 @@ public class EnemyMovement : MonoBehaviour
         ResetSpeed();
         
         
-        yield return new WaitForSeconds(1.5f);
+        // yield return new WaitForSeconds(1.5f);
         isAntlerDash = false;
         isWalking = true;
+		animator.SetBool("isAntlerDashing", false);
+		animator.SetBool("isWalking", true);
         
         
     }
@@ -129,6 +134,7 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Attack"))
         {
             isWalking = true;
+			animator.SetBool("isWalking", true);
         }
         
     }
