@@ -27,7 +27,7 @@ public class Deer : MonoBehaviour, Enemy
 
     public void TakeDamage(float damage)
     {
-        SoundManager.Instance.PlaySound2D("Boss-Hurt", 1f, 0.1f);
+        SoundManager.Instance.PlaySound2D("Deer-hurt", 1f, 0.1f);
 
 
         health -= damage;
@@ -35,7 +35,7 @@ public class Deer : MonoBehaviour, Enemy
         if (health <= 0)
         {
             KilledBoss();
-            SoundManager.Instance.PlaySound2D("Boss-died", 0.1f, 0.1f);
+            SoundManager.Instance.PlaySound2D("Deer-die", 0.1f, 0.1f);
         }
     }
 

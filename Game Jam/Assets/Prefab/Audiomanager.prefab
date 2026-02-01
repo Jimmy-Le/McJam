@@ -317,26 +317,40 @@ MonoBehaviour:
   - groupID: Player-Dash
     clips:
     - {fileID: 8300000, guid: f8f62ab75abe4b6a48d45c51b7dd42a9, type: 3}
-    - {fileID: 8300000, guid: 7a70292f3933a73f599ececc6fa3f907, type: 3}
-    - {fileID: 8300000, guid: d74a2521f0be6903988099b9649d8521, type: 3}
   - groupID: Player-Attack
     clips:
     - {fileID: 8300000, guid: 854e218f1dc76bf809c198d00ce48b69, type: 3}
     - {fileID: 8300000, guid: b6847e9f273fb85cf8811a085188b34d, type: 3}
     - {fileID: 8300000, guid: 9e62c57131756dd86834b3504d8184d0, type: 3}
     - {fileID: 8300000, guid: afc15dbfc52a484c9b8ea7b1afdd9b65, type: 3}
-  - groupID: Player-FootstepForest
-    clips:
-    - {fileID: 8300000, guid: 4431bcab4316db1b3983858ad99a8864, type: 3}
-    - {fileID: 8300000, guid: b33cb34a942a5def0a58427981213e49, type: 3}
-    - {fileID: 8300000, guid: 4a93bbee0d90f2db096919e08c63e628, type: 3}
-    - {fileID: 8300000, guid: 977dcaecffc64b3ea8e0c5561b8b6bd4, type: 3}
-  - groupID: Player-FootstepCave
+  - groupID: Player-Footstep
     clips:
     - {fileID: 8300000, guid: e99bd0409feccdec2ab1d7e9be2c38d1, type: 3}
     - {fileID: 8300000, guid: c6a00a7043fa44c1cae94b4cfe18137a, type: 3}
     - {fileID: 8300000, guid: 9839eda54b24edac99901f703b70f8f4, type: 3}
     - {fileID: 8300000, guid: 0179361ea62a099d087c0a658b0e5216, type: 3}
+  - groupID: Boss-Dead
+    clips:
+    - {fileID: 8300000, guid: 7c8bb606c5df3b2c3a3bcc73a7dd5665, type: 3}
+  - groupID: Boss-Hurt
+    clips:
+    - {fileID: 8300000, guid: b318e351676f582a48758f0c84c9e990, type: 3}
+    - {fileID: 8300000, guid: bf649367391e000b88ae94d2f640c89a, type: 3}
+    - {fileID: 8300000, guid: ee3c46079fe98028299581f54aa84102, type: 3}
+  - groupID: Boss-Fire
+    clips:
+    - {fileID: 8300000, guid: 1faf5fb6ec3b1f6389b46f46174c00c1, type: 3}
+  - groupID: Player-Skill
+    clips:
+    - {fileID: 8300000, guid: 74fc1ee2862ab8c41a12cb7574cf0655, type: 3}
+  - groupID: Boss-Charge
+    clips:
+    - {fileID: 8300000, guid: 5140b1b6126c9fb819fe74dc41293e31, type: 3}
+  - groupID: Deer-hurt
+    clips:
+    - {fileID: 8300000, guid: eefcef0ef411465378e0d885a652be8d, type: 3}
+    - {fileID: 8300000, guid: 6200c7ecfce978bde8e4a4be8f6eb0a6, type: 3}
+    - {fileID: 8300000, guid: fa6a8544d093ec3a48d294a1354304f2, type: 3}
 --- !u!114 &3711556946969623624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +383,7 @@ MonoBehaviour:
   - trackName: Boss-Dragon
     clip: {fileID: 8300000, guid: df9f36182662205e397d1390bebef83f, type: 3}
   - trackName: Ambiance
-    clip: {fileID: 8300000, guid: e1b2c7b3a960cf9ac96d4e95ed9c2561, type: 3}
+    clip: {fileID: 8300000, guid: 39387a3d1b0a07042bfe4ec414545fe8, type: 3}
   - trackName: Menu
     clip: {fileID: 8300000, guid: 6017fc10421ffa7c992da1853d09f537, type: 3}
 --- !u!114 &4604188409364399358
