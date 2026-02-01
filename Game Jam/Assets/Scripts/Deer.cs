@@ -7,6 +7,7 @@ public class Deer : MonoBehaviour, Enemy
     
 
     [SerializeField] public Vector2 direction;
+	[SerializeField] private GameObject powerUp;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,6 +33,7 @@ public class Deer : MonoBehaviour, Enemy
 
     public void KilledBoss()
     {
+		powerUp.SetActive(true);
         Destroy(this.gameObject);
     }
 

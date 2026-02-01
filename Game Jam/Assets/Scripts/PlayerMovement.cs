@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
 	// Animation
 	[SerializeField] private Animator animator; 
+	[SerializeField] private Animator bowAnimator; 
 	[SerializeField] private SpriteRenderer spriteRenderer;
 	[SerializeField] private Rigidbody2D rb;
 
@@ -185,6 +186,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Movement(){
 
+
 		Vector2 movement = move_action.ReadValue<Vector2>();
 
 
@@ -241,16 +243,15 @@ public class PlayerMovement : MonoBehaviour
 	private void Attack()
 	{
 
-		
+		bowAnimator.SetTrigger("isAttacking");
 		GameObject arrow = Instantiate(mainAttack, transform.position, Quaternion.Euler(0,0,0));
 		arrow.GetComponent<MainAttack>().InitializeArrow(attack, direction, attackSpeed);
-	
 
 	}
 
 	private void Skill()
 	{
-
+		bowAnimator.SetTrigger("isAttacking");
 		skill.GetComponent<SkillAttack>().InitializeSkill(attack, direction, transform.position);
 		GameObject skillObject = Instantiate(skill, transform.position, Quaternion.Euler(0,0,0));
 		skillObject.GetComponent<SkillAttack>().Shoot();

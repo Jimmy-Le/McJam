@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] private GameObject gameOverPanel;
+	[SerializeField] private GameObject rightWall;
     void Start()
     {
         
@@ -26,6 +27,12 @@ public class GameManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
     }
+
+	public void BossKilled()
+	{
+		rightWall.SetActive(false);
+	}
+	
 
     public void Leave()
     {
