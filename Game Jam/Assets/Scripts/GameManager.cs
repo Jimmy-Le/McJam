@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 	public void BossKilled()
 	{
 		rightWall.SetActive(false);
+	
 	}
 	
 

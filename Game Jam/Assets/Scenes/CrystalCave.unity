@@ -12043,6 +12043,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1848839523}
     - target: {fileID: 5796517755116888337, guid: 8e0e6e3c04e2f442da432e1aa2606660, type: 3}
+      propertyPath: hasSkill
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5796517755116888337, guid: 8e0e6e3c04e2f442da432e1aa2606660, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1361974472}
