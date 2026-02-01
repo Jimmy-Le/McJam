@@ -60,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
 	// Special Attack 
 	public float skillTimer = 0;
 	private float skillCooldown = 5f;
-	public bool hasSkill = false;
 
 	// Dodge
 	public bool isDodging = false;
@@ -135,13 +134,13 @@ public class PlayerMovement : MonoBehaviour
 			if(mainAttackTimer <= 0)
 			{
 				Attack();
-                SoundManager.Instance.PlaySound2D("Player-Attack");
+                SoundManager.Instance.PlaySound2D("Player-Attack", 0f, 0.9f);
 
                 mainAttackTimer = mainAttackCooldown;
 			} 
 		}
 
-		if (skill_action.IsPressed() && hasSkill)
+		if (skill_action.IsPressed() )
 		{
 			if(skillTimer <= 0)
 			{
@@ -263,10 +262,6 @@ public class PlayerMovement : MonoBehaviour
 		
 	}
 	
-	public void UnlockPowerUp()
-	{
-		hasSkill = true;
-	}
 	
 	
 
