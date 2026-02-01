@@ -4,6 +4,17 @@ using System.Collections;
 public class DiceAttack : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private GameObject upperBound;
+    [SerializeField] private GameObject lowerBound;
+    
+    [SerializeField] private Transform playerTransform;
+    
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject aoePrefab;
+    [SerializeField] private GameObject attackIndicator;
+
+    private int choice;
+    
     
     void Start()
     {
@@ -15,8 +26,13 @@ public class DiceAttack : MonoBehaviour
     {
         
     }
+
+    public void StartAttack()
+    {
+        StartCoroutine(RollDice());
+    }
     
-    private IEnumerator RollDice()
+    public IEnumerator RollDice()
     {
         int roll = Random.Range(1, 7);
         
@@ -29,9 +45,14 @@ public class DiceAttack : MonoBehaviour
         // Flash Dice
         // Change sprite to the "roll" number
 
+        Debug.Log($"Rolled a {roll}");
         if (roll == 6)
         {
             // Do 10 DMG attack to the whole board
+            Vector3 snapshot = playerTransform.position;
+            Instantiate(attackIndicator, snapshot, Quaternion.Euler(0, 0, 0));
+            yield return new WaitForSeconds(2f);
+            ShootAoe(snapshot);
         }
         else
         {
@@ -42,10 +63,35 @@ public class DiceAttack : MonoBehaviour
                 // Instantiate attacks
                 // Initialize Attacks to go towards the position
                 // wait 0.5 seconds
+                Shoot();
+                yield return new WaitForSeconds(0.5f);
+
             }
         }
 
         yield return null;
         
+    }
+    
+    void Shoot() {
+        // SNAPSHOT at launch time
+        Vector3 snapshot = playerTransform.position;
+        ShootProjectile(snapshot);
+
+
+    }
+
+    private void ShootProjectile(Vector3 snapshot)
+    {
+        GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        DragonProjectile script = proj.GetComponent<DragonProjectile>();
+        Instantiate(attackIndicator, snapshot, Quaternion.Euler(0, 0, 0));
+        script.Launch(snapshot);  
+    }
+
+    private void ShootAoe(Vector3 snapshot)
+    {
+        
+        GameObject proj = Instantiate(aoePrefab,snapshot, Quaternion.identity);
     }
 }

@@ -8,17 +8,32 @@ public class DragonScript : MonoBehaviour, Enemy
     
 
     [SerializeField] public Vector2 direction;
+
+	[SerializeField] private GameObject diceAttack;
+
+	private float attackTimer = 0;
+	private float attackTime = 5f;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        health = 250f;
+        health = 150f;
     }
 
     // Update is called once per frame
     void Update()
     {
+		if(attackTimer > attackTime)
+		{
+			
+			diceAttack.GetComponent<DiceAttack>().StartAttack();
+			attackTimer = 0f;
+		} 
+		else 
+		{
+			attackTimer += Time.deltaTime;
+		}
         
     }
     

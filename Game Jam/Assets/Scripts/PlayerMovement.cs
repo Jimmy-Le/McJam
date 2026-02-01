@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -25,7 +26,10 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField]
 	public float attack = 5f;
     [SerializeField] 
-    public float speed = 2f;
+    public float speed = 5f;
+
+	[SerializeField] 
+    public float baseSpeed = 5f;
 	[SerializeField]
 	public float attackSpeed = 3f;
     [SerializeField] 
@@ -40,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
 	// Invincibility
 	public bool isInvincible = false;
 	public float invincibleTimer = 0f;
-	public float invincibleDuration = 2f;
+	public float invincibleDuration = 0.1f;
 
 	// Attack / Skill Prefabs
 	[SerializeField]
@@ -61,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 	public float dodgeTimer = 0;
 	public float dodgeDurationTimer = 0f;
 	public float dodgeDuration = 2f;
-	private float dodgeCooldown = 1f;
+	private float dodgeCooldown = 2.5f;
 	private float dodgeSpeed = 12f;
 	public float dodgeDistance = 1f;
 	private Vector3 targetPosition;
@@ -252,10 +256,12 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Dodge()
 	{
-		
+		isInvincible = true;
+		invincibleTimer = invincibleDuration;
 		transform.position = Vector3.MoveTowards(transform.position, targetPosition, dodgeSpeed * Time.deltaTime);
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f) {
             isDodging = false; 
+		
         }
 		
 		
@@ -273,7 +279,8 @@ public class PlayerMovement : MonoBehaviour
 				Die();
 			} else {
 				isInvincible = true;
-				spriteRenderer.color = new Color(10f, 1.5f, 2f, 1f);  // R>1 overbright
+				invincibleTimer = invincibleDuration;
+				spriteRenderer.color = new Color(2f, 1.5f, 2f, 1f);  // R>1 overbright
 			}
 		}
 	}
@@ -291,6 +298,20 @@ public class PlayerMovement : MonoBehaviour
 		{
 			targetPosition = transform.position;
 		}
+	}
+
+	public void GetSlowed()
+	{
+		StartCoroutine(Slowed());
+	}
+
+	public IEnumerator Slowed()
+	{
+		speed = speed/2f;
+		yield return new WaitForSeconds(3f);
+		speed = baseSpeed;
+		yield return null;
+		
 	}
 
 }
