@@ -42,6 +42,7 @@ public class DragonScript : MonoBehaviour, Enemy
     public void TakeDamage(float damage)
     {
         health -= damage;
+        DragonHealth.DragonHP.UpdateDragonHealth(health);
         if (health <= 0)
         {
             KilledBoss();
