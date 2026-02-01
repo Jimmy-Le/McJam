@@ -41,6 +41,9 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if (!isWalking && !isAntlerDash && !isAttacking)
+
+            MusicManager.Instance.PlayMusic("Boss-Deer");
+
         {
             float distance = Vector3.Distance(transform.position, playerTransform.position);
                     if (distance < minDistance)

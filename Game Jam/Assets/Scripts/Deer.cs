@@ -15,6 +15,7 @@ public class Deer : MonoBehaviour, Enemy
     void Start()
     {
         health = 100f;
+
     }
 
     // Update is called once per frame
