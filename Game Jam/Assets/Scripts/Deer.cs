@@ -26,6 +26,7 @@ public class Deer : MonoBehaviour, Enemy
     public void TakeDamage(float damage)
     {
         health -= damage;
+        DeerHealth.DeerHP.UpdateDeerHealth(health);
         if (health <= 0)
         {
             KilledBoss();
