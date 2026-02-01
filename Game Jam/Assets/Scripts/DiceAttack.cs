@@ -13,6 +13,9 @@ public class DiceAttack : MonoBehaviour
     [SerializeField] private GameObject aoePrefab;
     [SerializeField] private GameObject attackIndicator;
 
+    [SerializeField] private Sprite[] dices;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     private int choice;
     
     
@@ -37,13 +40,20 @@ public class DiceAttack : MonoBehaviour
         int roll = Random.Range(1, 7);
         
         // Change sprite to 3
+        spriteRenderer.sprite = dices[2];
         // Wait 1 second
+        yield return new WaitForSeconds(1f);
         // Change sprite to 2
+        spriteRenderer.sprite = dices[1];
         // Wait 1 second
+        yield return new WaitForSeconds(1f);
         // Change sprite to 1
+        spriteRenderer.sprite = dices[0];
         // Wait 1 Second 
+        yield return new WaitForSeconds(1f);
         // Flash Dice
         // Change sprite to the "roll" number
+        spriteRenderer.sprite = dices[roll - 1];
 
         Debug.Log($"Rolled a {roll}");
         if (roll == 6)

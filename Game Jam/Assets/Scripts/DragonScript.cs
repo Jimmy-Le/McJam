@@ -5,7 +5,7 @@ public class DragonScript : MonoBehaviour, Enemy
 {
     [SerializeField] public float health;
     [SerializeField] public int attack = 1;
-    
+    [SerializeField] private GameManager gameManager;
 
     [SerializeField] public Vector2 direction;
 
@@ -51,6 +51,7 @@ public class DragonScript : MonoBehaviour, Enemy
 
     public void KilledBoss()
     {
+		gameManager.BossKilled();
         Destroy(this.gameObject);
     }
 

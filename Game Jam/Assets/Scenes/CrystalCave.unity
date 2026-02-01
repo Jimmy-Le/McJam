@@ -6618,6 +6618,11 @@ RectTransform:
   m_AnchoredPosition: {x: 134.7782, y: 26.9555}
   m_SizeDelta: {x: 53.9109, y: 53.9109}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!212 &1280525657 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2030014985288463170, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+  m_PrefabInstance: {fileID: 4454642764599563175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1281663266
 GameObject:
   m_ObjectHideFlags: 0
@@ -12367,6 +12372,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dragon
       objectReference: {fileID: 0}
+    - target: {fileID: 2030014985288463170, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2205863333093305225, guid: 18fa212dc7aa8bca399451b04fef558c, type: 3}
+    - target: {fileID: 2030014985288463170, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030014985288463170, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030014985288463170, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2349082363649737365, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1361974472}
     - target: {fileID: 4162008409858755958, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
       propertyPath: m_Size.x
       value: 2.474485
@@ -12400,9 +12425,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2009690514}
     - target: {fileID: 5461342373937186140, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1280525657}
+    - target: {fileID: 5461342373937186140, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1848839524}
+    - target: {fileID: 5461342373937186140, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: dices.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461342373937186140, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: 'dices.Array.data[0]'
+      value: 
+      objectReference: {fileID: -2205863333093305225, guid: 18fa212dc7aa8bca399451b04fef558c, type: 3}
+    - target: {fileID: 5461342373937186140, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: 'dices.Array.data[1]'
+      value: 
+      objectReference: {fileID: -5420220854288092238, guid: 18fa212dc7aa8bca399451b04fef558c, type: 3}
+    - target: {fileID: 5461342373937186140, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: 'dices.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1094064525842813209, guid: 18fa212dc7aa8bca399451b04fef558c, type: 3}
+    - target: {fileID: 5461342373937186140, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: 'dices.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7934114944782325874, guid: 18fa212dc7aa8bca399451b04fef558c, type: 3}
+    - target: {fileID: 5461342373937186140, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: 'dices.Array.data[4]'
+      value: 
+      objectReference: {fileID: -880043905950401250, guid: 18fa212dc7aa8bca399451b04fef558c, type: 3}
+    - target: {fileID: 5461342373937186140, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
+      propertyPath: 'dices.Array.data[5]'
+      value: 
+      objectReference: {fileID: -5478230469006044976, guid: 18fa212dc7aa8bca399451b04fef558c, type: 3}
     - target: {fileID: 9038787002294614337, guid: 256daed634bf4469981dd343ff840ba3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.18
@@ -12621,7 +12678,4 @@ SceneRoots:
   - {fileID: 1506862394}
   - {fileID: 227955776}
   - {fileID: 1509230396}
-  - {fileID: 227955776}
-  - {fileID: 227955776}
-  - {fileID: 227955776}
   - {fileID: 512206906}
