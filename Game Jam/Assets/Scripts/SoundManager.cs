@@ -1,5 +1,5 @@
-﻿using System.Diagnostics;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class SoundManager : MonoBehaviour
 {
@@ -34,17 +34,13 @@ public class SoundManager : MonoBehaviour
         PlaySound3D(sfxLibrary.GetClipFromName(soundName), pos);
     }
 
-    // === FIXED Version ===
     public void PlaySound2D(string soundName, float volume = 1f, float delay = 0f)
     {
         AudioClip clip = sfxLibrary.GetClipFromName(soundName);
+        if (clip == null) return;
 
-
-
-        // If user passes a negative volume, treat it as decibels (like -10 dB)
+        // Interpret negative values as decibels (e.g. -10f means 10 dB quieter)
         float finalVolume = volume < 0 ? Mathf.Pow(10f, volume / 20f) : volume;
-
-        // Clamp volume between 0–1 to avoid errors
         finalVolume = Mathf.Clamp01(finalVolume);
 
         if (delay <= 0f)
@@ -57,9 +53,10 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator PlayDelayedSound(AudioClip clip, float volume, float delay)
+    private IEnumerator PlayDelayedSound(AudioClip clip, float volume, float delay)
     {
         yield return new WaitForSeconds(delay);
+        if (clip == null) yield break;
         sfx2DSource.PlayOneShot(clip, volume);
     }
 }
