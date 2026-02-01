@@ -134,7 +134,9 @@ public class PlayerMovement : MonoBehaviour
 			if(mainAttackTimer <= 0)
 			{
 				Attack();
-				mainAttackTimer = mainAttackCooldown;
+                SoundManager.Instance.PlaySound2D("Player-Attack");
+
+                mainAttackTimer = mainAttackCooldown;
 			} 
 		}
 
@@ -232,7 +234,7 @@ public class PlayerMovement : MonoBehaviour
     private void Attack()
 	{
 
-		bowAnimator.SetTrigger("isAttacking");
+        bowAnimator.SetTrigger("isAttacking");
 		GameObject arrow = Instantiate(mainAttack, transform.position, Quaternion.Euler(0,0,0));
 		arrow.GetComponent<MainAttack>().InitializeArrow(attack, direction, attackSpeed);
 
