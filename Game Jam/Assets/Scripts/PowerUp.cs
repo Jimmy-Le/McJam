@@ -14,11 +14,13 @@ public class PowerUp : MonoBehaviour
         
     }
 
-    void OnTrigger2D(Collider other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
+            Debug.Log("Hi");
+            other.gameObject.GetComponent<PlayerMovement>().UnlockPowerUp();
+            Destroy(this.gameObject);
         }
     }
 }
