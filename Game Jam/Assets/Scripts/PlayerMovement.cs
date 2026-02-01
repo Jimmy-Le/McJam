@@ -185,63 +185,52 @@ public class PlayerMovement : MonoBehaviour
         }
 	}
 
-	private void Movement(){
+    private float footstepTimer = 0f;
+    [SerializeField] private float footstepCooldown = 0.3f;
 
+    private void Movement()
+    {
+        Vector2 movement = move_action.ReadValue<Vector2>();
+        bool isMoving = movement != Vector2.zero;
 
-		Vector2 movement = move_action.ReadValue<Vector2>();
+        // Play footstep sound only if moving and cooldown expired
+        if (isMoving && footstepTimer <= 0f)
+        {
+            SoundManager.Instance.PlaySound2D("Player-FootstepForest", 0.5f, 0.9f);
+            footstepTimer = footstepCooldown;
+        }
 
+        // Countdown timer
+        if (footstepTimer > 0f)
+            footstepTimer -= Time.deltaTime;
 
-        SoundManager.Instance.PlaySound2D("Player-FootstepForest", 1f, 0.1f);
-
-        // Move diagonal
+        // Movement + animation logic
         if (movement.x != 0 && movement.y != 0)
-		{
-			direction = new Vector2(movement.x, 0);
-		
-			
-		} else if(movement.y != 0 && movement.x == 0) 
-		{
-			direction = new Vector2(0, movement.y);
-		} else if(movement.x != 0 && movement.y == 0)
-		{
-			direction = new Vector2(movement.x, 0);
-		}
+        {
+            direction = new Vector2(movement.x, 0);
+        }
+        else if (movement.y != 0)
+        {
+            direction = new Vector2(0, movement.y);
+        }
+        else if (movement.x != 0)
+        {
+            direction = new Vector2(movement.x, 0);
+        }
 
-		// if moving left
-		if(direction.x < 0){
-			spriteRenderer.flipX = true;
-			animator.SetBool("isFront", false);
-			animator.SetBool("isBack", false);
-		} else if (direction.x > 0)	// Moving right
-		{
-			spriteRenderer.flipX = false;
-			animator.SetBool("isFront", false);
-			animator.SetBool("isBack", false);
-		} else if (direction.y < 0) // Moving down ?
-		{
-			spriteRenderer.flipX = false;
-			animator.SetBool("isFront", true);
-			animator.SetBool("isBack", false);
-		
-		} else if (direction.y > 0)
-		{
-			spriteRenderer.flipX = false;
-			animator.SetBool("isFront", false);
-			animator.SetBool("isBack", true);
-		} else 
-		{
-			spriteRenderer.flipX = false;
-			animator.SetBool("isFront", false);
-			animator.SetBool("isBack", false);
-		}
+        // Animations (simplified)
+        spriteRenderer.flipX = direction.x < 0;
+        animator.SetBool("isFront", direction.y < 0);
+        animator.SetBool("isBack", direction.y > 0);
 
+        // Move character
+        transform.Translate(
+            new Vector3(movement.x, movement.y, 0) * speed * Time.deltaTime,
+            Space.World
+        );
+    }
 
-        transform.Translate(0, movement.y * speed * Time.deltaTime, 0, Space.World);
-        transform.Translate(movement.x * speed * Time.deltaTime,0, 0, Space.World);
-
-	}
-
-	private void Attack()
+    private void Attack()
 	{
 
 		bowAnimator.SetTrigger("isAttacking");
