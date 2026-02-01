@@ -541,7 +541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3323ce29acb2d824b9dbc6763faaa5c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  abilitiesUIInstance: {fileID: 0}
   dashButton: {fileID: 949047146}
   flurryButton: {fileID: 1969200778}
 --- !u!4 &122447503 stripped
@@ -3296,7 +3295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3284375437267495662, guid: 8e0e6e3c04e2f442da432e1aa2606660, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.17723
+      value: -5.55
       objectReference: {fileID: 0}
     - target: {fileID: 3284375437267495662, guid: 8e0e6e3c04e2f442da432e1aa2606660, type: 3}
       propertyPath: m_LocalPosition.y
