@@ -599,6 +599,10 @@ PrefabInstance:
       value: Boss-Charge
       objectReference: {fileID: 0}
     - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: soundEffects.Array.data[1].clips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: soundEffects.Array.data[4].clips.Array.size
       value: 1
       objectReference: {fileID: 0}

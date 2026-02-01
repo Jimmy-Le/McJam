@@ -79,7 +79,7 @@ public class EnemyMovement : MonoBehaviour
     private IEnumerator AntlerAttack()
     {
 
-        SoundManager.Instance.PlaySound2D("Boss-Charge", 0.1f, 0.1f);
+        SoundManager.Instance.PlaySound2D("Boss-Charge", 0.5f, 0.1f);
 
 
         isWalking = false;
@@ -115,12 +115,15 @@ public class EnemyMovement : MonoBehaviour
 
     private void Walk()
     {
+
         transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
             
         Vector3 direction = (playerTransform.position - transform.position).normalized;
             
         if (direction.x > 0.1f) {
             // Moving right
+
+
             spriteRenderer.flipX = true;
         } else if (direction.x < -0.1f) {
             // Moving left
