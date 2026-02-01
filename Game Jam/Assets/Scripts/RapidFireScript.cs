@@ -25,12 +25,13 @@ public class RapidFireScript : MonoBehaviour, SkillAttack
         direction = playerDirection;
         damage = playerDamage * 2;
         arrowPosition = basePosition;
-       
-        
-        
+        SoundManager.Instance.PlaySound2D("Player-Skill", -0.7f);
+
+
+
         // arrow.gameObject.GetComponent<MainAttack>().InitializeArrow(damage, direction, speed);
 
-        
+
 
     }
 

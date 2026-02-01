@@ -11,11 +11,15 @@ public class DragonProjectile : MonoBehaviour
     public void Launch(Vector3 playerSnapshotPos) {
         snapshotTarget = playerSnapshotPos;  
         launched = true;
+        SoundManager.Instance.PlaySound2D("Boss-Fire", -0.7f);
+
     }
     
     void Update() {
         if (!launched) return;
-        
+
+
+
         transform.position = Vector3.MoveTowards(transform.position, snapshotTarget, speed * Time.deltaTime);
         
         if (Vector3.Distance(transform.position, snapshotTarget) < 0.1f) {

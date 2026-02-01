@@ -18,8 +18,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Forest");
-        MusicManager.Instance.PlayMusic("Ambiance");
+        SceneManager.LoadScene("Corridor");
     }
 
 

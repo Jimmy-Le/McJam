@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -44,7 +44,7 @@ public class SoundManager : MonoBehaviour
         // If user passes a negative volume, treat it as decibels (like -10 dB)
         float finalVolume = volume < 0 ? Mathf.Pow(10f, volume / 20f) : volume;
 
-        // Clamp volume between 0�1 to avoid errors
+        // Clamp volume between 0–1 to avoid errors
         finalVolume = Mathf.Clamp01(finalVolume);
 
         if (delay <= 0f)
