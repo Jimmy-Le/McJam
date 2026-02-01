@@ -578,6 +578,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: soundEffects.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: soundEffects.Array.data[3].groupID
+      value: Player-Footstep
+      objectReference: {fileID: 0}
     - target: {fileID: 9133688060421540266, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: m_Name
       value: Audiomanager
@@ -11872,11 +11880,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!4 &1907619786 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 161454880573426177, guid: f61bb11a6c4d3fa87ac6d5f9b18356a1, type: 3}
-  m_PrefabInstance: {fileID: 879741858968799540}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1920241416
 GameObject:
   m_ObjectHideFlags: 0
@@ -12506,7 +12509,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4564149960260433035, guid: 8e0e6e3c04e2f442da432e1aa2606660, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6845776739633165090}
   m_SourcePrefab: {fileID: 100100000, guid: 8e0e6e3c04e2f442da432e1aa2606660, type: 3}
 --- !u!1 &6845776739633165089 stripped
 GameObject:

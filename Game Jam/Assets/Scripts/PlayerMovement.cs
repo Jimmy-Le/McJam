@@ -198,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
         // Play footstep sound only if moving and cooldown expired
         if (isMoving && footstepTimer <= 0f)
         {
-            SoundManager.Instance.PlaySound2D("Player-FootstepForest", 0.5f, 0.9f);
+            SoundManager.Instance.PlaySound2D("Player-Footstep", 0.5f, 0.9f);
             footstepTimer = footstepCooldown;
         }
 
