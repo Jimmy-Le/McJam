@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 	// Special Attack 
 	public float skillTimer = 0;
 	private float skillCooldown = 5f;
+	[SerializeField] public bool hasSkill = false;
 
 	// Dodge
 	public bool isDodging = false;
@@ -258,8 +259,11 @@ public class PlayerMovement : MonoBehaviour
             isDodging = false; 
 		
         }
-		
-		
+	}
+
+	public void UnlockPowerUp()
+	{
+		hasSkill = true;
 	}
 	
 	
