@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private GameObject attackIndicator;
 	[SerializeField] private Animator animator; 
+
     // States
     private bool isWalking = false;
     private bool isAttacking = false;
