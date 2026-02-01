@@ -580,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: soundEffects.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: soundEffects.Array.data[3].groupID
@@ -591,8 +591,16 @@ PrefabInstance:
       value: Boss-died
       objectReference: {fileID: 0}
     - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: soundEffects.Array.data[5].groupID
+      value: Boss-Hurt
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: soundEffects.Array.data[4].clips.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: soundEffects.Array.data[5].clips.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: 'soundEffects.Array.data[4].clips.Array.data[0]'
@@ -610,6 +618,22 @@ PrefabInstance:
       propertyPath: 'soundEffects.Array.data[4].clips.Array.data[3]'
       value: 
       objectReference: {fileID: 8300000, guid: 977dcaecffc64b3ea8e0c5561b8b6bd4, type: 3}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: 'soundEffects.Array.data[5].clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: eefcef0ef411465378e0d885a652be8d, type: 3}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: 'soundEffects.Array.data[5].clips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6200c7ecfce978bde8e4a4be8f6eb0a6, type: 3}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: 'soundEffects.Array.data[5].clips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: fa6a8544d093ec3a48d294a1354304f2, type: 3}
+    - target: {fileID: 9109075594673472451, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
+      propertyPath: 'soundEffects.Array.data[5].clips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b318e351676f582a48758f0c84c9e990, type: 3}
     - target: {fileID: 9133688060421540266, guid: e766f0e205aac8745b398e00b5f81369, type: 3}
       propertyPath: m_Name
       value: Audiomanager

@@ -27,6 +27,9 @@ public class Deer : MonoBehaviour, Enemy
 
     public void TakeDamage(float damage)
     {
+        SoundManager.Instance.PlaySound2D("Boss-Hurt", 1f, 0.1f);
+
+
         health -= damage;
         DeerHealth.DeerHP.UpdateDeerHealth(health);
         if (health <= 0)

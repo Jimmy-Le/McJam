@@ -153,7 +153,8 @@ public class PlayerMovement : MonoBehaviour
 
 		if (dodge_action.IsPressed() && !isDodging )
 		{
-			if(dodgeTimer <= 0)
+
+            if (dodgeTimer <= 0)
 			{
 				isDodging = true;
 				isInvincible = true;
@@ -167,15 +168,19 @@ public class PlayerMovement : MonoBehaviour
 		if(isDodging)
 		{
 			Dodge();
-			
-		}
 
-      
+            SoundManager.Instance.PlaySound2D("Player-Dash", 1f, 0.1f);
+
+        }
+
+
     }
 
 	void FixedUpdate(){
 	    if(isDead)
         {
+            MusicManager.Instance.StopMusic();
+
             return;
         }
 
@@ -273,8 +278,11 @@ public class PlayerMovement : MonoBehaviour
 
 	public void TakeDamage(int damage){
 		if(!isInvincible && !isDead)
-		{
-			animator.SetTrigger("isHit");
+            SoundManager.Instance.PlaySound2D("Player-Hurt", -10f, 0.1f);
+
+
+        {
+            animator.SetTrigger("isHit");
 			health -= damage;
 			PlayerHealth.HP.UpdateHealth(health);
 			if (health <= 0){
