@@ -39,4 +39,13 @@ public class Deer : MonoBehaviour, Enemy
     {
         
     }
+
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if(other.gameObject.CompareTag("Player"))
+		{
+			other.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);
+		}
+	}
+
 }

@@ -30,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] 
     public Vector2 direction = new Vector2(1,0);
 
+	// Invincibility
+	public bool isInvincible = false;
+	public float invincibleTimer = 0f;
+	public float invincibleDuration = 2f;
+
 	// Attack / Skill Prefabs
 	[SerializeField]
 	public GameObject mainAttack;
@@ -50,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 	public float dodgeDurationTimer = 0f;
 	public float dodgeDuration = 2f;
 	private float dodgeCooldown = 1f;
-	public float dodgeSpeed = 10f;
+	private float dodgeSpeed = 12f;
 	public float dodgeDistance = 1f;
 	private Vector3 targetPosition;
 	private Vector3 currentPosition;
@@ -96,6 +101,15 @@ public class PlayerMovement : MonoBehaviour
 			dodgeDurationTimer = dodgeDuration;
 			isDodging = false;
 		}
+
+		if(invincibleTimer > 0)
+		{
+			
+			invincibleTimer -= Time.deltaTime;
+		} else {
+			spriteRenderer.color = Color.white;  // R>1 overbright
+			isInvincible = false;
+		}
 		
 
 		
@@ -123,8 +137,10 @@ public class PlayerMovement : MonoBehaviour
 			if(dodgeTimer <= 0)
 			{
 				isDodging = true;
+				isInvincible = true;
 				currentPosition = transform.position;
 				targetPosition = new Vector3(currentPosition.x + (dodgeDistance * direction.x), currentPosition.y + (dodgeDistance * direction.y), currentPosition.z);
+				spriteRenderer.color = new Color(1.5f, 10f, 2f, 1f);  // R>1 overbright
 				dodgeTimer = dodgeCooldown;
 			}
 		}
@@ -229,9 +245,15 @@ public class PlayerMovement : MonoBehaviour
 	
 
 	public void TakeDamage(int damage){
-		health -= damage;
-		if (health <= 0){
-			Debug.Log("Game Over");
+		if(!isInvincible)
+		{
+			health -= damage;
+			if (health <= 0){
+				Debug.Log("Game Over");
+			} else {
+				isInvincible = true;
+				spriteRenderer.color = new Color(10f, 1.5f, 2f, 1f);  // R>1 overbright
+			}
 		}
 	}
 
