@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("Corridor");
+        MusicManager.Instance.PlayMusic("Ambiance");
     }
 
 

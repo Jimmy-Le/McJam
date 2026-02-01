@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private InputAction attack_action;
     private InputAction dodge_action;
     private InputAction skill_action;
+	private InputAction emote_action;
 
 	// Animation
 	[SerializeField] private Animator animator; 
@@ -74,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
 	private Vector3 currentPosition;
 
 
+	private bool isEmote = false;
+
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -88,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         attack_action = inputAction.FindAction("Attack");
         dodge_action = inputAction.FindAction("Sprint");
         skill_action = inputAction.FindAction("Skill");
+		emote_action = inputAction.FindAction("Jump");
         
     }
     
@@ -128,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
 			isInvincible = false;
 
 		}
-		
+
 		
 		if (attack_action.IsPressed() )
 		{
@@ -174,8 +178,14 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
+		if(emote_action.IsPressed())
+		{
+            animator.SetTrigger("isEmote");
+		}
 
-
+				
+		AbilitiesUI.abilitiesUIInstance.UpdateDashUI(dodgeTimer);
+		AbilitiesUI.abilitiesUIInstance.UpdateFlurryUI(skillTimer, hasSkill);
     }
 
 	void FixedUpdate(){

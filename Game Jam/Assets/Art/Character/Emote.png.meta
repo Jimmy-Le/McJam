@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 83811ae4b798dbc5c9c089b117242941
+guid: f1a7aab96009cf913a828db1d9ab35bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2956361448602115594
-    second: Skill_Icon_0
-  - first:
-      213: -3143513023718747802
-    second: Skill_Icon_1
-  - first:
-      213: -7430735366532357134
-    second: Skill_Icon_2
+      213: 1159231885758491695
+    second: Emote_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,57 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skill_Icon_0
+      name: Emote_0
       rect:
         serializedVersion: 2
         x: 11
-        y: 23
-        width: 45
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a0e9693f21b170920800000000000000
-      internalID: 2956361448602115594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skill_Icon_1
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 13
-        width: 45
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6611e6a5f8fff54d0800000000000000
-      internalID: -3143513023718747802
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skill_Icon_2
-      rect:
-        serializedVersion: 2
-        x: 17
         y: 3
-        width: 45
-        height: 14
+        width: 43
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f328e9cd89b0e890800000000000000
-      internalID: -7430735366532357134
+      spriteID: f2ce0fa124b661010800000000000000
+      internalID: 1159231885758491695
       vertices: []
       indices: 
       edges: []
@@ -198,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Skill_Icon_0: 2956361448602115594
-      Skill_Icon_1: -3143513023718747802
-      Skill_Icon_2: -7430735366532357134
+      Emote_0: 1159231885758491695
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
