@@ -91,7 +91,6 @@ public class EnemyMovement : MonoBehaviour
         
         currentTargetPosition = playerTransform.position;
         Instantiate(attackIndicator, currentTargetPosition, Quaternion.Euler(0, 0, 0));
-        Debug.Log(currentTargetPosition);
         
         while (Vector3.Distance(transform.position, currentTargetPosition) > 0.3f)
         {

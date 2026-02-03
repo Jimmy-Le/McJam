@@ -20,8 +20,6 @@ public class PowerUp : MonoBehaviour
         {
             SoundManager.Instance.PlaySound2D("Player-Pick", 0.5f);
 
-
-            Debug.Log("Hi");
             other.gameObject.GetComponent<PlayerMovement>().UnlockPowerUp();
             Destroy(this.gameObject);
         }
