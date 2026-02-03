@@ -14,7 +14,7 @@ public class Deer : MonoBehaviour, Enemy
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        health = 100f;
+        health = 150f;
         MusicManager.Instance.PlayMusic("Boss-Deer");
 
     }

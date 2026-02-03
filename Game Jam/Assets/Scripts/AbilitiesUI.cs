@@ -30,15 +30,11 @@ public class AbilitiesUI : MonoBehaviour
         {
             //ability active
             dashButton.GetComponent<Image>().color= active;
-            Debug.Log("updating the UI DASH ACTIVE");
-            Debug.Log(dashButton.color);
         }
         else
         {
             //ability inactive
             dashButton.GetComponent<Image>().color = greyedOut;
-            Debug.Log("updating the UI greying out the dash");
-            Debug.Log(dashButton.color);
             
         }
         

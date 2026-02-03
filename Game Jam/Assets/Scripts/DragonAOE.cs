@@ -21,9 +21,9 @@ public class DragonAOE : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerMovement>().TakeDamage(2);
+            other.gameObject.GetComponent<PlayerMovement>().TakeDamage(1);
             other.gameObject.GetComponent<PlayerMovement>().GetSlowed();
-            Destroy(gameObject);
+         
         }
         
     }

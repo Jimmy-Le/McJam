@@ -110,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   health: 0
   attack: 1
+  gameManager: {fileID: 0}
   direction: {x: 0, y: 0}
   diceAttack: {fileID: 7407709353999587191}
 --- !u!61 &4162008409858755958
@@ -218,7 +219,7 @@ GameObject:
   - component: {fileID: 3217887009241508778}
   - component: {fileID: 2030014985288463170}
   - component: {fileID: 5461342373937186140}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dice Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +288,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0.49056602, b: 0.49056602, a: 1}
@@ -317,3 +318,5 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1453764751734643144, guid: b47f25489155c81a3a6f68284c176731, type: 3}
   aoePrefab: {fileID: 1453764751734643144, guid: f9414d784b62a23299d54f8a6e8ccd54, type: 3}
   attackIndicator: {fileID: 3128125350971982193, guid: f1bdb47b53ba34571b73ee6591a7cae2, type: 3}
+  dices: []
+  spriteRenderer: {fileID: 0}

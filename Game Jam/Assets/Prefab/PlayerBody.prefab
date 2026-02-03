@@ -128,11 +128,13 @@ MonoBehaviour:
   skill: {fileID: 7201608956555809380, guid: 424d3ccc5e1bfd6be837459fcb5edad6, type: 3}
   mainAttackTimer: 0
   skillTimer: 0
+  hasSkill: 0
   isDodging: 0
   dodgeTimer: 0
   dodgeDurationTimer: 0
   dodgeDuration: 1
   dodgeDistance: 2
+  footstepCooldown: 0.3
 --- !u!58 &52613117467413830
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -353,7 +355,7 @@ GameObject:
   - component: {fileID: 6380722236060715575}
   - component: {fileID: 5625099524298193846}
   - component: {fileID: 4129360757135915486}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bow_Still
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +424,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 4b73e17c702dd821488f7538c6908a47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

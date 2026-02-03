@@ -75,8 +75,6 @@ public class PlayerMovement : MonoBehaviour
 	private Vector3 currentPosition;
 
 
-	private bool isEmote = false;
-
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -145,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 			} 
 		}
 
-		if (skill_action.IsPressed() )
+		if (skill_action.IsPressed() && hasSkill)
 		{
 			if(skillTimer <= 0)
 			{
